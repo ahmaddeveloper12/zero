@@ -11,8 +11,7 @@ export default async function handler(req, res) {
       const newCv = new Cv(cvData);
       await newCv.save();
       res.status(201).json({ success: true, message: 'CV submitted successfully!' });
-    } catch (error) {
-      console.error("Error saving CV:", error);  // Log the error to the console
+    } catch {
       res.status(500).json({ success: false, message: 'Error saving CV.' });
     }
   } else {
