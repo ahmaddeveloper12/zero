@@ -1,31 +1,15 @@
-// models/Cv.js
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const CvSchema = new mongoose.Schema(
-  {
-    name: { type: String, required: true },
-    email: { type: String, required: true },
-    phone: { type: String },
-    education: [
-      {
-        degree: String,
-        university: String,
-        year: String,
-      },
-    ],
-    experience: [
-      {
-        company: String,
-        role: String,
-        duration: String,
-        description: String,
-      },
-    ],
-    skills: [String],
-  },
-  { timestamps: true }
-);
+const cvSchema = new mongoose.Schema({
+  fullName: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: { type: String, required: true },
+  address: { type: String, required: true },
+  skills: { type: [String], required: true },
+  experience: { type: String, required: true },
+  education: { type: String, required: true },
+});
 
-const Cv = mongoose.models.Cv || mongoose.model("Cv", CvSchema);
+const CV = mongoose.models.CV || mongoose.model('CV', cvSchema);
 
-export default Cv;
+export default CV;
